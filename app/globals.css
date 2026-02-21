@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Sistema de colores mejorado para modo claro y oscuro */
+  :root {
+    /* Colores base - backgrounds y foregrounds */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Club colors - Permanecen iguales en ambos temas */
+    --club-verde: #2e8b58;
+    --club-amarillo: #ffd700;
+    --club-blanco: #ffffff;
+    --club-negro: #000000;
+    --club-azul: #020817;
+
+    /* Primary (verde del club) */
+    --primary: 142 39% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary (amarillo del club) */
+    --secondary: 51 100% 50%;
+    --secondary-foreground: 222.2 84% 4.9%;
+
+    /* Muted - para backgrounds secundarios */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Accent - para elementos destacados */
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Warning */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    /* Success */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Borders e inputs */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 39% 36%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Modo oscuro con mejor contraste y legibilidad */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 217.2 32.6% 17.5%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary ajustado para modo oscuro */
+    --primary: 142 39% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary ajustado para modo oscuro */
+    --secondary: 51 100% 50%;
+    --secondary-foreground: 222.2 84% 4.9%;
+
+    /* Muted - backgrounds secundarios más claros */
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    /* Accent */
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Destructive */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Warning */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    /* Success */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Borders e inputs más visibles */
+    --border: 217.2 32.6% 27.5%;
+    --input: 217.2 32.6% 27.5%;
+    --ring: 142 39% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  .text-shadow-md {
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-xl {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .bg-size-200 {
+    background-size: 200% 200%;
+  }
+}

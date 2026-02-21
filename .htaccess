@@ -1,0 +1,44 @@
+# Configuración optimizada para Ferozo
+RewriteEngine On
+
+# Redirigir www a no-www (opcional)
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Servir archivos y directorios existentes directamente
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirigir todas las solicitudes no encontradas a index.html
+RewriteRule ^ index.html [L]
+
+# Establecer tipos MIME correctos
+AddType application/javascript .js
+AddType application/json .json
+AddType text/css .css
+AddType image/svg+xml .svg
+AddType font/woff .woff
+AddType font/woff2 .woff2
+
+# Habilitar compresión
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Establecer caché para archivos estáticos
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/json "access plus 0 seconds"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Prevenir listado de directorios
+Options -Indexes
